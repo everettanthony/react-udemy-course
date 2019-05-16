@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
 import Char from './Char/Char';
+import Radium, { StyleRoot } from 'radium';
 
 class App extends Component {
   state = {
@@ -70,7 +71,12 @@ class App extends Component {
       color: '#fff',
       cursor: 'pointer',
       marginBottom: '20px',
-      padding: '10px'
+      outline: 'none',
+      padding: '10px',
+      transition: 'background 200ms ease-in-out',
+      ':hover': {
+        backgroundColor: '#5e99ff'
+      }
     }
 
     let persons = null;
@@ -82,7 +88,7 @@ class App extends Component {
 
             const charList = person.name.split('').map((ch, i) => {
               return <Char character={ch} key={i} clicked={() => this.deleteCharHandler(i, person.id)}/>;
-            });
+            }); 
 
             return <Person
               click={() => this.deletePersonHandler(index)}
@@ -94,18 +100,34 @@ class App extends Component {
           })}
         </div>
       );
+
+      btnStyle.backgroundColor = '#7ff5b8';
+      btnStyle.color = '#000';
+      btnStyle[':hover'] = {
+        backgroundColor: '#c0ffde'
+      }
+    }
+
+    let emptyWarning = '';
+    const classes = ['red', 'bold'];
+
+    if (this.state.persons.length <= 2) {
+      emptyWarning = <p className={classes.join(' ')}>Running low on people</p>;
     }
 
     return (
-      <div className="App">
-        <h1>React App</h1>
-        <button
-          style={btnStyle}
-          onClick={this.togglePersonsHandler}>Toggle List View</button>
-        {persons}
-      </div>
+      <StyleRoot>
+        <div className="App">
+          <h1>React App</h1>
+          {emptyWarning}
+          <button
+            style={btnStyle}
+            onClick={this.togglePersonsHandler}>Toggle List View</button>
+          {persons}
+        </div>
+      </StyleRoot>
     );
   }
 }
 
-export default App;
+export default Radium(App);
