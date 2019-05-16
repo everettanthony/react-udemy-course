@@ -84,15 +84,13 @@ class App extends Component {
               return <Char character={ch} key={i} clicked={() => this.deleteCharHandler(i, person.id)}/>;
             });
 
-
-            return  charList.length > 0 ? 
-              <Person
+            return <Person
               click={() => this.deletePersonHandler(index)}
               name={person.name} 
               age={person.age}
               key={person.id}
               nameList={charList}
-              changed={(event) => this.nameChangedHandler(event, person.id)}  /> : null
+              changed={(event) => this.nameChangedHandler(event, person.id)}  />
           })}
         </div>
       );
