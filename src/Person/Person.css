@@ -1,0 +1,20 @@
+.person {
+    align-items: center;
+    border: 1px solid #8a8a8a;
+    display: flex;
+    flex-direction: column;
+    height: 110px;
+    justify-content: center;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    width: 320px;
+}
+
+.person p {
+    margin: 0 0 10px;
+}
+
+.person:not(:last-child) {
+    margin-bottom: 20px;
+}
