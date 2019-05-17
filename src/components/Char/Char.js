@@ -21,9 +21,7 @@ const Char = (props) => {
     }
 
     return (
-        <div 
-            style={props.character !== ' ' ? style : spacer}
-            onClick={props.clicked}>
+        <div style={props.character !== ' ' ? style : spacer} onClick={props.clicked}>
             {props.character}
         </div>
     );
