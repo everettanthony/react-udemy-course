@@ -14,13 +14,13 @@ class App extends Component {
 
   state = {
     persons: [
-      { id: 1, name: 'Tony', age: 43 },
+      { id: 1, name: 'Anthony', age: 43 },
       { id: 2, name: 'Heather', age: 43 },
       { id: 3, name: 'Lorelei', age: 8 },
       { id: 4, name: 'Layla', age: 6 }
     ],
     otherState: 'some other value',
-    showPersons: false,
+    showPersons: true,
     showCockpit: true,
     changeCounter: 0,
     authenticated: false
@@ -103,7 +103,8 @@ class App extends Component {
   }
 
   loginHandler = () => {
-    this.setState({ authenticated: true });
+    const isLoggedIn = this.state.authenticated;
+    this.setState({ authenticated: !isLoggedIn });
   };
 
   render() {
@@ -142,7 +143,9 @@ class App extends Component {
               clicked={this.togglePersonsHandler} /> : null
         }  
         {/* <div>{this.state.changeCounter}</div> */}
-        {persons}
+        <div className={styles.items}>
+          {persons}
+        </div>
         </AuthContext.Provider>
       </Aux>
     );

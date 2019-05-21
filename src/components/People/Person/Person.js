@@ -23,15 +23,16 @@ class Person extends Component {
 
         return (
             <Aux>
-                <div className={styles.person}>
-                    { this.context.authenticated ? <p>Authenticated!</p> : <p>Login</p>}
-                    {/* {this.context.authenticated ? (<p>Authenticated!</p>) : (<p>Please log in</p>)} */}
-                    <p onClick={this.props.click}>I'm {this.props.name} and I am {this.props.age > 1 ? `${this.props.age} years` : `a ${this.props.age} year`} old.</p>
-                    {this.props.children ? <p>{this.props.children}</p> : ''}
-                    <input type="text" onChange={this.props.changed} value={this.props.name} ref={this.inputElementRef} />
-                    <Validation inputLength={this.props.name.length} />
+                <div className={styles.item}>
+                    <div className={styles.person}>
+                        { this.context.authenticated ? <p>Welcome Back, Mr. User!</p> : <p>Please Sign In.</p>}
+                        <p onClick={this.props.click}>I'm {this.props.name} and I am {this.props.age > 1 ? `${this.props.age} years` : `a ${this.props.age} year`} old.</p>
+                        {this.props.children ? <p>{this.props.children}</p> : ''}
+                        <input type="text" onChange={this.props.changed} value={this.props.name} ref={this.inputElementRef} />
+                        <Validation inputLength={this.props.name.length} />
+                    </div>
+                    {this.props.nameList}
                 </div>
-                {this.props.nameList}
             </Aux>
         );
     }

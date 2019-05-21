@@ -7,7 +7,7 @@ const Cockpit = (props) => {
     let btnClass = '';
     const toggleBtnRef = useRef(null);
     const authContext = useContext(AuthContext);
-    console.log('AUTH:',authContext.authenticated);
+    console.log('AUTH:', authContext.authenticated);
 
 
     // CANNOT access ref yet because DOM elements aren't rendered yet.
@@ -48,7 +48,7 @@ const Cockpit = (props) => {
                 onClick={props.clicked}>
                 Toggle List View
             </button>
-            <button onClick={authContext.login}>Log In</button>
+            <button onClick={authContext.login}>{authContext.authenticated ? 'Log Out' : 'Log In'}</button>
         </div>    
     );
 };

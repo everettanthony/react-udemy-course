@@ -1,4 +1,8 @@
 .app {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
 }
 
@@ -7,7 +11,7 @@
   border: 1px solid #021154;
   color: #fff;
   cursor: pointer;
-  margin-bottom: 20px;
+  margin: 0 5px 20px;
   outline: none;
   padding: 10px;
 }
@@ -19,4 +23,12 @@
 .warning {
   color: red;
   font-weight: 700;
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  width: 90%;
 }

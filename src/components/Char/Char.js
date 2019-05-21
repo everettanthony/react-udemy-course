@@ -8,7 +8,7 @@ const Char = (props) => {
         display: 'inline-block',
         fontWeight: 'bold',
         margin: '0 2px 20px',
-        padding: ' 10px 20px',
+        padding: '8px 13px',
         textAlign: 'center',
         textTransform: 'uppercase'
     };
