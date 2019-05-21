@@ -15,7 +15,7 @@ class Person extends Component {
 
     componentDidMount() {
         this.inputElementRef.current.focus();
-        console.log(this.context.authenticated);
+        console.log('Authenticated Context:', this.context.authenticated);
     }
 
     render() {

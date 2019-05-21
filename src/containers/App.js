@@ -20,7 +20,7 @@ class App extends Component {
       { id: 4, name: 'Layla', age: 6 }
     ],
     otherState: 'some other value',
-    showPersons: true,
+    showPersons: false,
     showCockpit: true,
     changeCounter: 0,
     authenticated: false
@@ -136,16 +136,14 @@ class App extends Component {
           this.state.showCockpit ? 
             <Cockpit 
               title={this.props.appTitle}
-              changeCounter={this.state.changeCounter}
+              // changeCounter={this.state.changeCounter}
               showPersons={this.state.showPersons} 
               personsLength={this.state.persons.length}
               clicked={this.togglePersonsHandler} /> : null
         }  
-        <div>{this.state.changeCounter}</div>
-        </AuthContext.Provider>
-
-
+        {/* <div>{this.state.changeCounter}</div> */}
         {persons}
+        </AuthContext.Provider>
       </Aux>
     );
   }
